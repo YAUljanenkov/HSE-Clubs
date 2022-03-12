@@ -1,0 +1,43 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire",
+        "state": {
+          "branch": null,
+          "revision": "f82c23a8a7ef8dc1a49a8bfc6a96883e79121864",
+          "version": "5.5.0"
+        }
+      },
+      {
+        "package": "HSEAuth",
+        "repositoryURL": "https://github.com/hseapp/HSEAuth-iOS",
+        "state": {
+          "branch": "master",
+          "revision": "73530bf14ada305475caca59c32e6de64fbba7c5",
+          "version": null
+        }
+      },
+      {
+        "package": "HSEUI",
+        "repositoryURL": "https://github.com/hseapp/HSEUI",
+        "state": {
+          "branch": "master",
+          "revision": "92257343275620d96d09c57cd844fe4a975be67d",
+          "version": null
+        }
+      },
+      {
+        "package": "SnapKit",
+        "repositoryURL": "https://github.com/SnapKit/SnapKit",
+        "state": {
+          "branch": null,
+          "revision": "d458564516e5676af9c70b4f4b2a9178294f1bc6",
+          "version": "5.0.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
