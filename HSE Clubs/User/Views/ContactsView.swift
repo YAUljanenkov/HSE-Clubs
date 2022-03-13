@@ -39,6 +39,7 @@ class ContactsView: UIView {
             
             let button = UIButton()
             button.setImage(UIImage(named: "copy")?.resize(withSize: CGSize(width: 25, height: 25)), for: .normal)
+            button.setImage(UIImage(named: "copy pressed")?.resize(withSize: CGSize(width: 25, height: 25)), for: .highlighted)
             button.tag = tags[key] ?? 0
             button.addTarget(self, action: #selector(self.copyContact), for: .touchUpInside)
             contact.addArrangedSubview(button)
