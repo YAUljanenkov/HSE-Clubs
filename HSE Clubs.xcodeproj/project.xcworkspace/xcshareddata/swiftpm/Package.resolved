@@ -36,6 +36,15 @@
           "revision": "d458564516e5676af9c70b4f4b2a9178294f1bc6",
           "version": "5.0.1"
         }
+      },
+      {
+        "package": "swift-collections",
+        "repositoryURL": "https://github.com/apple/swift-collections.git",
+        "state": {
+          "branch": null,
+          "revision": "48254824bb4248676bf7ce56014ff57b142b77eb",
+          "version": "1.0.2"
+        }
       }
     ]
   },

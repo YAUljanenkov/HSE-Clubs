@@ -25,8 +25,8 @@ class UserViewController: UIViewController, UserDisplayLogic
     let contactsTitle: UILabel = {
         let label = UILabel()
         label.text = "Контакты"
-        label.font = UIFont.systemFont(ofSize: 36, weight: .bold)
-        label.textColor = UIColor(red: 0, green: 74/225.0, blue: 221/225.0, alpha: 100)
+        label.font = UIFont.systemFont(ofSize: 30, weight: .semibold)
+        label.textColor = UIColor(red: 0, green: 47/225.0, blue: 141/225.0, alpha: 100)
         return label
     }()
     
@@ -95,6 +95,18 @@ class UserViewController: UIViewController, UserDisplayLogic
             make.left.equalTo(view).offset(20)
         }
         
+        let contacts = ContactsView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 120), tg: "@schmitzer", vk: "@schmitzer", email: "uljanenhoff@yandex.ru")
+        contacts.translatesAutoresizingMaskIntoConstraints = false
+        contacts.isUserInteractionEnabled = true
+        
+        view.addSubview(contacts)
+        contacts.snp.makeConstraints { make in
+            make.left.equalTo(view).offset(20)
+            make.top.equalTo(contactsTitle.snp.bottom).offset(20)
+            make.width.equalTo(view).offset(-40)
+            make.height.equalTo(125)
+        }
+        
         doSomething()
     }
     
@@ -112,5 +124,6 @@ class UserViewController: UIViewController, UserDisplayLogic
         //nameTextField.text = viewModel.name
     }
     
-    
+
+
 }
