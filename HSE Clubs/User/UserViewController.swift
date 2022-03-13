@@ -11,80 +11,106 @@
 //
 
 import UIKit
+import SnapKit
 
-protocol UserDisplayLogic: class
+protocol UserDisplayLogic: AnyObject
 {
-  func displaySomething(viewModel: User.Something.ViewModel)
+    func displaySomething(viewModel: User.Something.ViewModel)
 }
 
 class UserViewController: UIViewController, UserDisplayLogic
 {
-  var interactor: UserBusinessLogic?
-  var router: (NSObjectProtocol & UserRoutingLogic & UserDataPassing)?
-
-  // MARK: Object lifecycle
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
-  
-  required init?(coder aDecoder: NSCoder)
-  {
-    super.init(coder: aDecoder)
-    setup()
-  }
-  
-  // MARK: Setup
-  
-  private func setup()
-  {
-    let viewController = self
-    let interactor = UserInteractor()
-    let presenter = UserPresenter()
-    let router = UserRouter()
-    viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    presenter.viewController = viewController
-    router.viewController = viewController
-    router.dataStore = interactor
-  }
-  
-  // MARK: Routing
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-  {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
+    var interactor: UserBusinessLogic?
+    var router: (NSObjectProtocol & UserRoutingLogic & UserDataPassing)?
+    let contactsTitle: UILabel = {
+        let label = UILabel()
+        label.text = "Контакты"
+        label.font = UIFont.systemFont(ofSize: 36, weight: .bold)
+        label.textColor = UIColor(red: 0, green: 74/225.0, blue: 221/225.0, alpha: 100)
+        return label
+    }()
+    
+    // MARK: Object lifecycle
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+    {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
     }
-  }
-  
-  // MARK: View lifecycle
-  
-  override func viewDidLoad()
-  {
-    super.viewDidLoad()
-      view.backgroundColor = .white
-    doSomething()
-  }
-  
-  // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
-  
-  func doSomething()
-  {
-    let request = User.Something.Request()
-    interactor?.doSomething(request: request)
-  }
-  
-  func displaySomething(viewModel: User.Something.ViewModel)
-  {
-    //nameTextField.text = viewModel.name
-  }
+    
+    required init?(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    // MARK: Setup
+    
+    private func setup()
+    {
+        let viewController = self
+        let interactor = UserInteractor()
+        let presenter = UserPresenter()
+        let router = UserRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+    }
+    
+    // MARK: Routing
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if let scene = segue.identifier {
+            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+            if let router = router, router.responds(to: selector) {
+                router.perform(selector, with: segue)
+            }
+        }
+    }
+    
+    // MARK: View lifecycle
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        self.tabBarController?.title = "Профиль"
+        view.backgroundColor = .white
+        let userData = UserView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 120), name: "Киану Чарльз Ривз", avatar: UIImage(named: "kianu"), post: "BSE204", department: "FCS SE")
+        
+        view.addSubview(userData)
+        userData.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
+            make.left.equalTo(view).offset(20)
+            make.width.equalTo(view).offset(-40)
+            make.height.equalTo(120)
+        }
+        
+        view.addSubview(contactsTitle)
+        contactsTitle.snp.makeConstraints { make in
+            make.top.equalTo(userData.snp.bottom).offset(20)
+            make.left.equalTo(view).offset(20)
+        }
+        
+        doSomething()
+    }
+    
+    // MARK: Do something
+    
+    
+    func doSomething()
+    {
+        let request = User.Something.Request()
+        interactor?.doSomething(request: request)
+    }
+    
+    func displaySomething(viewModel: User.Something.ViewModel)
+    {
+        //nameTextField.text = viewModel.name
+    }
+    
+    
 }

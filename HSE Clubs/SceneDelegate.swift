@@ -16,6 +16,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         let tabBarController = UITabBarController()
+        
+        if #available(iOS 13.0, *) {
+            let tabBarAppearance: UITabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.configureWithDefaultBackground()
+            tabBarAppearance.backgroundColor = UIColor(named: "barBackground")
+            UITabBar.appearance().standardAppearance = tabBarAppearance
+
+            if #available(iOS 15.0, *) {
+                UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+            }
+        }
+        
+        if #available(iOS 15.0, *) {
+            let navigationBarAppearance = UINavigationBarAppearance()
+            navigationBarAppearance.configureWithDefaultBackground()
+            UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+            UINavigationBar.appearance().compactAppearance = navigationBarAppearance
+            UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+        } 
+        
         let viewControllers = [
             UserViewController(),
             UserViewController(),
@@ -31,12 +51,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let items = tabBarController.tabBar.items else { return }
         let titles = ["Поиск", "Клубы", "Календарь", "Профиль"]
         let imageScale = 32
+        
         let images = [
             UIImage(named: "search")?.resize(withSize: CGSize(width: imageScale, height: imageScale)),
             UIImage(named: "people")?.resize(withSize: CGSize(width: imageScale, height: imageScale)),
             UIImage(named: "calendar")?.resize(withSize: CGSize(width: imageScale, height: imageScale)),
             UIImage(named: "person")?.resize(withSize: CGSize(width: imageScale, height: imageScale))
         ]
+        
         for i in 0..<viewControllers.count {
             viewControllers[i].title = titles[i]
             items[i].image = images[i]

@@ -26,6 +26,7 @@
 		99FA0CC127DBB5F3006D8609 /* HSEAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 99FA0CC027DBB5F3006D8609 /* HSEAuth */; };
 		99FA0CC427DBB651006D8609 /* HSEUI in Frameworks */ = {isa = PBXBuildFile; productRef = 99FA0CC327DBB651006D8609 /* HSEUI */; };
 		99FA0CC627DBB730006D8609 /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA0CC527DBB730006D8609 /* UIImage+resize.swift */; };
+		99FA0CCC27DCD2DC006D8609 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA0CCB27DCD2DC006D8609 /* UserView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		996F007927D75222000A137C /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		996F007A27D75222000A137C /* UserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInteractor.swift; sourceTree = "<group>"; };
 		99FA0CC527DBB730006D8609 /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
+		99FA0CCB27DCD2DC006D8609 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 		996F008127D75227000A137C /* User */ = {
 			isa = PBXGroup;
 			children = (
+				99FA0CCA27DCD2CF006D8609 /* Views */,
 				996F007527D75222000A137C /* UserPresenter.swift */,
 				996F007627D75222000A137C /* UserWorker.swift */,
 				996F007727D75222000A137C /* UserRouter.swift */,
@@ -159,6 +162,14 @@
 				996F007A27D75222000A137C /* UserInteractor.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		99FA0CCA27DCD2CF006D8609 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				99FA0CCB27DCD2DC006D8609 /* UserView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,6 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99FA0CCC27DCD2DC006D8609 /* UserView.swift in Sources */,
 				996F004327D746A2000A137C /* AppDelegate.swift in Sources */,
 				996F008027D75222000A137C /* UserInteractor.swift in Sources */,
 				996F007F27D75222000A137C /* UserViewController.swift in Sources */,
