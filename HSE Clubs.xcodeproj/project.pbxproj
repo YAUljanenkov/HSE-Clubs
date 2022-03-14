@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		990CC14C27DF4B2C00CD7BA9 /* ClubPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990CC14627DF4B2C00CD7BA9 /* ClubPresenter.swift */; };
+		990CC14D27DF4B2C00CD7BA9 /* ClubWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990CC14727DF4B2C00CD7BA9 /* ClubWorker.swift */; };
+		990CC14E27DF4B2C00CD7BA9 /* ClubRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990CC14827DF4B2C00CD7BA9 /* ClubRouter.swift */; };
+		990CC14F27DF4B2C00CD7BA9 /* ClubModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990CC14927DF4B2C00CD7BA9 /* ClubModels.swift */; };
+		990CC15027DF4B2C00CD7BA9 /* ClubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990CC14A27DF4B2C00CD7BA9 /* ClubViewController.swift */; };
+		990CC15127DF4B2C00CD7BA9 /* ClubInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990CC14B27DF4B2C00CD7BA9 /* ClubInteractor.swift */; };
+		990CC15527DF653300CD7BA9 /* ClubNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990CC15427DF653300CD7BA9 /* ClubNameView.swift */; };
+		990CC15727DFA7A300CD7BA9 /* AdministratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990CC15627DFA7A300CD7BA9 /* AdministratorView.swift */; };
 		996F004327D746A2000A137C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996F004227D746A2000A137C /* AppDelegate.swift */; };
 		996F004527D746A2000A137C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996F004427D746A2000A137C /* SceneDelegate.swift */; };
 		996F004D27D746A2000A137C /* HSE_Clubs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 996F004B27D746A2000A137C /* HSE_Clubs.xcdatamodeld */; };
@@ -24,11 +32,17 @@
 		99FA0CBB27DBB465006D8609 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 99FA0CBA27DBB465006D8609 /* SnapKit */; };
 		99FA0CBE27DBB582006D8609 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 99FA0CBD27DBB582006D8609 /* Alamofire */; };
 		99FA0CC127DBB5F3006D8609 /* HSEAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 99FA0CC027DBB5F3006D8609 /* HSEAuth */; };
-		99FA0CC427DBB651006D8609 /* HSEUI in Frameworks */ = {isa = PBXBuildFile; productRef = 99FA0CC327DBB651006D8609 /* HSEUI */; };
 		99FA0CC627DBB730006D8609 /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA0CC527DBB730006D8609 /* UIImage+resize.swift */; };
 		99FA0CCC27DCD2DC006D8609 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA0CCB27DCD2DC006D8609 /* UserView.swift */; };
 		99FA0CCE27DDD94E006D8609 /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA0CCD27DDD94E006D8609 /* ContactsView.swift */; };
 		99FA0CD127DE09E5006D8609 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 99FA0CD027DE09E5006D8609 /* OrderedCollections */; };
+		99FA0CD827DE0F25006D8609 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA0CD227DE0F25006D8609 /* SearchPresenter.swift */; };
+		99FA0CD927DE0F25006D8609 /* SearchWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA0CD327DE0F25006D8609 /* SearchWorker.swift */; };
+		99FA0CDA27DE0F25006D8609 /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA0CD427DE0F25006D8609 /* SearchRouter.swift */; };
+		99FA0CDB27DE0F25006D8609 /* SearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA0CD527DE0F25006D8609 /* SearchModels.swift */; };
+		99FA0CDC27DE0F25006D8609 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA0CD627DE0F25006D8609 /* SearchViewController.swift */; };
+		99FA0CDD27DE0F25006D8609 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA0CD727DE0F25006D8609 /* SearchInteractor.swift */; };
+		99FA0CE027DE12B6006D8609 /* ClubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA0CDF27DE12B6006D8609 /* ClubCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +63,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		990CC14627DF4B2C00CD7BA9 /* ClubPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubPresenter.swift; sourceTree = "<group>"; };
+		990CC14727DF4B2C00CD7BA9 /* ClubWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubWorker.swift; sourceTree = "<group>"; };
+		990CC14827DF4B2C00CD7BA9 /* ClubRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubRouter.swift; sourceTree = "<group>"; };
+		990CC14927DF4B2C00CD7BA9 /* ClubModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubModels.swift; sourceTree = "<group>"; };
+		990CC14A27DF4B2C00CD7BA9 /* ClubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubViewController.swift; sourceTree = "<group>"; };
+		990CC14B27DF4B2C00CD7BA9 /* ClubInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubInteractor.swift; sourceTree = "<group>"; };
+		990CC15427DF653300CD7BA9 /* ClubNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubNameView.swift; sourceTree = "<group>"; };
+		990CC15627DFA7A300CD7BA9 /* AdministratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdministratorView.swift; sourceTree = "<group>"; };
 		996F003F27D746A2000A137C /* HSE Clubs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HSE Clubs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		996F004227D746A2000A137C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		996F004427D746A2000A137C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +92,13 @@
 		99FA0CC527DBB730006D8609 /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
 		99FA0CCB27DCD2DC006D8609 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		99FA0CCD27DDD94E006D8609 /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
+		99FA0CD227DE0F25006D8609 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		99FA0CD327DE0F25006D8609 /* SearchWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorker.swift; sourceTree = "<group>"; };
+		99FA0CD427DE0F25006D8609 /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
+		99FA0CD527DE0F25006D8609 /* SearchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModels.swift; sourceTree = "<group>"; };
+		99FA0CD627DE0F25006D8609 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		99FA0CD727DE0F25006D8609 /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
+		99FA0CDF27DE12B6006D8609 /* ClubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +110,6 @@
 				99FA0CC127DBB5F3006D8609 /* HSEAuth in Frameworks */,
 				99FA0CBB27DBB465006D8609 /* SnapKit in Frameworks */,
 				99FA0CBE27DBB582006D8609 /* Alamofire in Frameworks */,
-				99FA0CC427DBB651006D8609 /* HSEUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +130,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		990CC15227DF4B3400CD7BA9 /* Club */ = {
+			isa = PBXGroup;
+			children = (
+				990CC15327DF652200CD7BA9 /* Views */,
+				990CC14627DF4B2C00CD7BA9 /* ClubPresenter.swift */,
+				990CC14727DF4B2C00CD7BA9 /* ClubWorker.swift */,
+				990CC14827DF4B2C00CD7BA9 /* ClubRouter.swift */,
+				990CC14927DF4B2C00CD7BA9 /* ClubModels.swift */,
+				990CC14A27DF4B2C00CD7BA9 /* ClubViewController.swift */,
+				990CC14B27DF4B2C00CD7BA9 /* ClubInteractor.swift */,
+			);
+			path = Club;
+			sourceTree = "<group>";
+		};
+		990CC15327DF652200CD7BA9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				990CC15427DF653300CD7BA9 /* ClubNameView.swift */,
+				990CC15627DFA7A300CD7BA9 /* AdministratorView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		996F003627D746A2000A137C = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +176,7 @@
 		996F004127D746A2000A137C /* HSE Clubs */ = {
 			isa = PBXGroup;
 			children = (
+				990CC15227DF4B3400CD7BA9 /* Club */,
 				996F004227D746A2000A137C /* AppDelegate.swift */,
 				996F004427D746A2000A137C /* SceneDelegate.swift */,
 				996F004E27D746A5000A137C /* Assets.xcassets */,
@@ -133,6 +185,7 @@
 				996F004B27D746A2000A137C /* HSE_Clubs.xcdatamodeld */,
 				996F008127D75227000A137C /* User */,
 				99FA0CC527DBB730006D8609 /* UIImage+resize.swift */,
+				99FA0CDE27DE0F2C006D8609 /* Search */,
 			);
 			path = "HSE Clubs";
 			sourceTree = "<group>";
@@ -177,6 +230,20 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		99FA0CDE27DE0F2C006D8609 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				99FA0CD227DE0F25006D8609 /* SearchPresenter.swift */,
+				99FA0CD327DE0F25006D8609 /* SearchWorker.swift */,
+				99FA0CD427DE0F25006D8609 /* SearchRouter.swift */,
+				99FA0CD527DE0F25006D8609 /* SearchModels.swift */,
+				99FA0CD627DE0F25006D8609 /* SearchViewController.swift */,
+				99FA0CD727DE0F25006D8609 /* SearchInteractor.swift */,
+				99FA0CDF27DE12B6006D8609 /* ClubCell.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -197,7 +264,6 @@
 				99FA0CBA27DBB465006D8609 /* SnapKit */,
 				99FA0CBD27DBB582006D8609 /* Alamofire */,
 				99FA0CC027DBB5F3006D8609 /* HSEAuth */,
-				99FA0CC327DBB651006D8609 /* HSEUI */,
 				99FA0CD027DE09E5006D8609 /* OrderedCollections */,
 			);
 			productName = "HSE Clubs";
@@ -276,7 +342,6 @@
 				99FA0CB927DBB465006D8609 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				99FA0CBC27DBB582006D8609 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				99FA0CBF27DBB5F3006D8609 /* XCRemoteSwiftPackageReference "HSEAuth-iOS" */,
-				99FA0CC227DBB651006D8609 /* XCRemoteSwiftPackageReference "HSEUI" */,
 				99FA0CCF27DE09E5006D8609 /* XCRemoteSwiftPackageReference "swift-collections" */,
 			);
 			productRefGroup = 996F004027D746A2000A137C /* Products */;
@@ -321,15 +386,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				990CC14C27DF4B2C00CD7BA9 /* ClubPresenter.swift in Sources */,
 				99FA0CCC27DCD2DC006D8609 /* UserView.swift in Sources */,
+				990CC14D27DF4B2C00CD7BA9 /* ClubWorker.swift in Sources */,
+				990CC15727DFA7A300CD7BA9 /* AdministratorView.swift in Sources */,
 				996F004327D746A2000A137C /* AppDelegate.swift in Sources */,
 				996F008027D75222000A137C /* UserInteractor.swift in Sources */,
+				99FA0CE027DE12B6006D8609 /* ClubCell.swift in Sources */,
+				99FA0CDC27DE0F25006D8609 /* SearchViewController.swift in Sources */,
 				99FA0CCE27DDD94E006D8609 /* ContactsView.swift in Sources */,
+				990CC15027DF4B2C00CD7BA9 /* ClubViewController.swift in Sources */,
+				990CC15527DF653300CD7BA9 /* ClubNameView.swift in Sources */,
 				996F007F27D75222000A137C /* UserViewController.swift in Sources */,
+				99FA0CD927DE0F25006D8609 /* SearchWorker.swift in Sources */,
+				990CC14E27DF4B2C00CD7BA9 /* ClubRouter.swift in Sources */,
+				99FA0CDA27DE0F25006D8609 /* SearchRouter.swift in Sources */,
+				99FA0CDB27DE0F25006D8609 /* SearchModels.swift in Sources */,
 				996F007E27D75222000A137C /* UserModels.swift in Sources */,
 				996F007D27D75222000A137C /* UserRouter.swift in Sources */,
 				996F007B27D75222000A137C /* UserPresenter.swift in Sources */,
+				990CC14F27DF4B2C00CD7BA9 /* ClubModels.swift in Sources */,
+				990CC15127DF4B2C00CD7BA9 /* ClubInteractor.swift in Sources */,
+				99FA0CDD27DE0F25006D8609 /* SearchInteractor.swift in Sources */,
 				996F007C27D75222000A137C /* UserWorker.swift in Sources */,
+				99FA0CD827DE0F25006D8609 /* SearchPresenter.swift in Sources */,
 				996F004D27D746A2000A137C /* HSE_Clubs.xcdatamodeld in Sources */,
 				996F004527D746A2000A137C /* SceneDelegate.swift in Sources */,
 				99FA0CC627DBB730006D8609 /* UIImage+resize.swift in Sources */,
@@ -692,14 +772,6 @@
 				kind = branch;
 			};
 		};
-		99FA0CC227DBB651006D8609 /* XCRemoteSwiftPackageReference "HSEUI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hseapp/HSEUI";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		99FA0CCF27DE09E5006D8609 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-collections.git";
@@ -725,11 +797,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 99FA0CBF27DBB5F3006D8609 /* XCRemoteSwiftPackageReference "HSEAuth-iOS" */;
 			productName = HSEAuth;
-		};
-		99FA0CC327DBB651006D8609 /* HSEUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 99FA0CC227DBB651006D8609 /* XCRemoteSwiftPackageReference "HSEUI" */;
-			productName = HSEUI;
 		};
 		99FA0CD027DE09E5006D8609 /* OrderedCollections */ = {
 			isa = XCSwiftPackageProductDependency;

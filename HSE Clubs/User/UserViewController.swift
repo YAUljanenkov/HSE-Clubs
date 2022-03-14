@@ -77,7 +77,6 @@ class UserViewController: UIViewController, UserDisplayLogic
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.tabBarController?.title = "Профиль"
         view.backgroundColor = .white
         let userData = UserView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 120), name: "Киану Чарльз Ривз", avatar: UIImage(named: "kianu"), post: "BSE204", department: "FCS SE")
         
@@ -108,6 +107,10 @@ class UserViewController: UIViewController, UserDisplayLogic
         }
         
         doSomething()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.title = "Профиль"
     }
     
     // MARK: Do something

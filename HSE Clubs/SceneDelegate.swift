@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import HSEUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -37,8 +38,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } 
         
         let viewControllers = [
-            UserViewController(),
-            UserViewController(),
+            SearchViewController(),
+            ClubViewController(),
             UserViewController(),
             UserViewController()
         ]

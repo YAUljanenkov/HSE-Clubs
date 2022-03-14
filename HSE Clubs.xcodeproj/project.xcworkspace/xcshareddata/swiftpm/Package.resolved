@@ -20,15 +20,6 @@
         }
       },
       {
-        "package": "HSEUI",
-        "repositoryURL": "https://github.com/hseapp/HSEUI",
-        "state": {
-          "branch": "master",
-          "revision": "92257343275620d96d09c57cd844fe4a975be67d",
-          "version": null
-        }
-      },
-      {
         "package": "SnapKit",
         "repositoryURL": "https://github.com/SnapKit/SnapKit",
         "state": {
