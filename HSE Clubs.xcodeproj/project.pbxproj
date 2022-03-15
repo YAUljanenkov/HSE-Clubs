@@ -15,6 +15,7 @@
 		990CC15127DF4B2C00CD7BA9 /* ClubInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990CC14B27DF4B2C00CD7BA9 /* ClubInteractor.swift */; };
 		990CC15527DF653300CD7BA9 /* ClubNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990CC15427DF653300CD7BA9 /* ClubNameView.swift */; };
 		990CC15727DFA7A300CD7BA9 /* AdministratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990CC15627DFA7A300CD7BA9 /* AdministratorView.swift */; };
+		990CC15927E0AB7F00CD7BA9 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990CC15827E0AB7F00CD7BA9 /* EventView.swift */; };
 		996F004327D746A2000A137C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996F004227D746A2000A137C /* AppDelegate.swift */; };
 		996F004527D746A2000A137C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996F004427D746A2000A137C /* SceneDelegate.swift */; };
 		996F004D27D746A2000A137C /* HSE_Clubs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 996F004B27D746A2000A137C /* HSE_Clubs.xcdatamodeld */; };
@@ -71,6 +72,7 @@
 		990CC14B27DF4B2C00CD7BA9 /* ClubInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubInteractor.swift; sourceTree = "<group>"; };
 		990CC15427DF653300CD7BA9 /* ClubNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubNameView.swift; sourceTree = "<group>"; };
 		990CC15627DFA7A300CD7BA9 /* AdministratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdministratorView.swift; sourceTree = "<group>"; };
+		990CC15827E0AB7F00CD7BA9 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 		996F003F27D746A2000A137C /* HSE Clubs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HSE Clubs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		996F004227D746A2000A137C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		996F004427D746A2000A137C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			children = (
 				990CC15427DF653300CD7BA9 /* ClubNameView.swift */,
 				990CC15627DFA7A300CD7BA9 /* AdministratorView.swift */,
+				990CC15827E0AB7F00CD7BA9 /* EventView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				99FA0CD927DE0F25006D8609 /* SearchWorker.swift in Sources */,
 				990CC14E27DF4B2C00CD7BA9 /* ClubRouter.swift in Sources */,
 				99FA0CDA27DE0F25006D8609 /* SearchRouter.swift in Sources */,
+				990CC15927E0AB7F00CD7BA9 /* EventView.swift in Sources */,
 				99FA0CDB27DE0F25006D8609 /* SearchModels.swift in Sources */,
 				996F007E27D75222000A137C /* UserModels.swift in Sources */,
 				996F007D27D75222000A137C /* UserRouter.swift in Sources */,

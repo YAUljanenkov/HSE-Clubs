@@ -26,6 +26,14 @@ class ClubViewController: UIViewController, ClubDisplayLogic
     var clubDescription: String? = "Клуб создан для всех потомков Авраама и для тех, кто хочет вернуться на землю Обетованную"
     var avatar: UIImage? = UIImage(named: "fkn")
     
+    let eventsTitle: UILabel = {
+        let label = UILabel()
+        label.text = "Мероприятия"
+        label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
+        label.textColor = UIColor(red: 0, green: 47/225.0, blue: 141/225.0, alpha: 100)
+        return label
+    }()
+    
     // MARK: Object lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
@@ -94,6 +102,24 @@ class ClubViewController: UIViewController, ClubDisplayLogic
             make.left.equalToSuperview().offset(20)
             make.right.equalToSuperview().offset(20)
             make.height.equalTo(100)
+        }
+        
+        view.addSubview(eventsTitle)
+        
+        eventsTitle.snp.makeConstraints { make in
+            make.top.equalTo(administratorName.snp.bottom).offset(20)
+            make.left.equalToSuperview().offset(20)
+        }
+        
+        
+        let event = EventView(frame: CGRect(x: 0, y: 0, width: 350, height: 150), name: "Знакомство с клубом", description: "На первой встречи клуба мы познакомимся с алфавитом иврита и изучим иудейский календарь.", date: "01.04.2022 12:30", place: "R204")
+        
+        view.addSubview(event)
+        event.snp.makeConstraints { make in
+            make.top.equalTo(eventsTitle.snp.bottom).offset(20)
+            make.left.equalToSuperview().offset(20)
+            make.width.equalTo(350)
+            make.height.equalTo(150)
         }
         doSomething()
     }

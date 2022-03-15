@@ -40,7 +40,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let viewControllers = [
             SearchViewController(),
             ClubViewController(),
-            UserViewController(),
+//            UserViewController(),
             UserViewController()
         ]
         tabBarController.setViewControllers(viewControllers, animated: false)
@@ -50,13 +50,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.makeKeyAndVisible()
         
         guard let items = tabBarController.tabBar.items else { return }
-        let titles = ["Поиск", "Клубы", "Календарь", "Профиль"]
+        let titles = ["Поиск", "Клубы",
+//                      "Календарь",
+                      "Профиль"]
         let imageScale = 32
         
         let images = [
             UIImage(named: "search")?.resize(withSize: CGSize(width: imageScale, height: imageScale)),
             UIImage(named: "people")?.resize(withSize: CGSize(width: imageScale, height: imageScale)),
-            UIImage(named: "calendar")?.resize(withSize: CGSize(width: imageScale, height: imageScale)),
+//            UIImage(named: "calendar")?.resize(withSize: CGSize(width: imageScale, height: imageScale)),
             UIImage(named: "person")?.resize(withSize: CGSize(width: imageScale, height: imageScale))
         ]
         
