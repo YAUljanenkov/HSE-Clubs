@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import HSEUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -44,7 +43,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             UserViewController()
         ]
         tabBarController.setViewControllers(viewControllers, animated: false)
-        let nav = UINavigationController(rootViewController: tabBarController)
+        let nav = UINavigationController(rootViewController: AuthViewController())
         window.rootViewController = nav
         self.window = window
         window.makeKeyAndVisible()

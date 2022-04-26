@@ -23,32 +23,28 @@ class EventView: UIView {
         label.textAlignment = .left
         return label
     }()
-    
+        
     var dateTimeLabel: UILabel = {
         let label = UILabel()
-//        let imageAttachment = NSTextAttachment()
-//        imageAttachment.image = UIImage(named: "clock")?.resize(withSize: CGSize(width: 16, height: 16))
-//        let imageOffsetY: CGFloat = -5.0
-//        imageAttachment.bounds = CGRect(x: 0, y: 0, width: imageAttachment.image!.size.width, height: imageAttachment.image!.size.height)
-//        let attachmentString = NSAttributedString(attachment: imageAttachment)
-//        let completeText = NSMutableAttributedString(string: "")
-//        completeText.append(attachmentString)
-//        label.textAlignment = .center
-//        label.attributedText = completeText
         return label
+
     }()
+    
+    func setupDateTime() -> UIStackView {
+        let icon = UIImageView(image: UIImage(named: "clock")?.resize(withSize: CGSize(width: 16.0, height: 16.0)))
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.distribution = .fillProportionally
+        stackView.spacing = 5
+        stackView.alignment = .center
+        stackView.addArrangedSubview(icon)
+        stackView.addArrangedSubview(dateTimeLabel)
+        stackView.addBackground(color: UIColor(red: 242/256, green: 242/256, blue: 247/256, alpha: 1.0), cornerRadius: 10.0)
+        return stackView
+    }
     
     var roomLabel: UILabel = {
         let label = UILabel()
-//        let imageAttachment = NSTextAttachment()
-//        imageAttachment.image = UIImage(named: "door")?.resize(withSize: CGSize(width: 16, height: 16))
-//        let imageOffsetY: CGFloat = -5.0
-//        imageAttachment.bounds = CGRect(x: 0, y: 0, width: imageAttachment.image!.size.width, height: imageAttachment.image!.size.height)
-//        let attachmentString = NSAttributedString(attachment: imageAttachment)
-//        let completeText = NSMutableAttributedString(string: "")
-//        completeText.append(attachmentString)
-//        label.textAlignment = .center
-//        label.attributedText = completeText
         return label
     }()
     
@@ -73,24 +69,14 @@ class EventView: UIView {
         stackView.distribution = .fillProportionally
         stackView.spacing = 5
         stackView.alignment = .leading
-        let dateLabel = UILabel()
-        dateLabel.text = "Дата"
-        dateLabel.font = UIFont.systemFont(ofSize: 16, weight: .light)
-        dateLabel.textColor = .gray
-        stackView.addArrangedSubview(dateLabel)
-        stackView.addArrangedSubview(dateTimeLabel)
-        let addreessLabel = UILabel()
-        addreessLabel.text = "Адрес"
-        addreessLabel.font = UIFont.systemFont(ofSize: 16, weight: .light)
-        addreessLabel.textColor = .gray
-        stackView.addArrangedSubview(addreessLabel)
+        stackView.addArrangedSubview(setupDateTime())
         stackView.addArrangedSubview(roomLabel)
         
         addSubview(stackView)
         
         stackView.snp.makeConstraints { make in
             make.top.equalTo(nameLabel.snp.bottom).offset(10)
-            make.left.equalToSuperview().offset(10)
+//            make.left.equalToSuperview().offset(10)
             make.right.equalToSuperview().offset(10)
             make.height.equalTo(40)
         }
@@ -107,5 +93,15 @@ class EventView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension UIStackView {
+    func addBackground(color: UIColor, cornerRadius: CGFloat) {
+        let subView = UIView(frame: bounds)
+        subView.backgroundColor = color
+        subView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        subView.layer.cornerRadius = cornerRadius
+        insertSubview(subView, at: 0)
     }
 }

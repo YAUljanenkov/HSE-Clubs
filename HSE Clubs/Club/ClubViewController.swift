@@ -124,6 +124,11 @@ class ClubViewController: UIViewController, ClubDisplayLogic
         doSomething()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.title = "Клуб"
+    }
+    
+    
     // MARK: Do something
     
     //@IBOutlet weak var nameTextField: UITextField!
