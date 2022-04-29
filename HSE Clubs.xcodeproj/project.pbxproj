@@ -30,12 +30,11 @@
 		996F007E27D75222000A137C /* UserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996F007827D75222000A137C /* UserModels.swift */; };
 		996F007F27D75222000A137C /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996F007927D75222000A137C /* UserViewController.swift */; };
 		996F008027D75222000A137C /* UserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996F007A27D75222000A137C /* UserInteractor.swift */; };
-		99BFC7E4281045CE00568E29 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BFC7DE281045CE00568E29 /* AuthPresenter.swift */; };
-		99BFC7E5281045CE00568E29 /* AuthWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BFC7DF281045CE00568E29 /* AuthWorker.swift */; };
+		99A8CFC2281BF53B0036CCCD /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = 99A8CFC1281BF53B0036CCCD /* JWTDecode */; };
+		99A8CFC4281C1CE80036CCCD /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A8CFC3281C1CE80036CCCD /* Requests.swift */; };
 		99BFC7E6281045CE00568E29 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BFC7E0281045CE00568E29 /* AuthRouter.swift */; };
 		99BFC7E7281045CE00568E29 /* AuthModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BFC7E1281045CE00568E29 /* AuthModels.swift */; };
 		99BFC7E8281045CE00568E29 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BFC7E2281045CE00568E29 /* AuthViewController.swift */; };
-		99BFC7E9281045CE00568E29 /* AuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BFC7E3281045CE00568E29 /* AuthInteractor.swift */; };
 		99FA0CBB27DBB465006D8609 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 99FA0CBA27DBB465006D8609 /* SnapKit */; };
 		99FA0CBE27DBB582006D8609 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 99FA0CBD27DBB582006D8609 /* Alamofire */; };
 		99FA0CC127DBB5F3006D8609 /* HSEAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 99FA0CC027DBB5F3006D8609 /* HSEAuth */; };
@@ -97,12 +96,10 @@
 		996F007827D75222000A137C /* UserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModels.swift; sourceTree = "<group>"; };
 		996F007927D75222000A137C /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		996F007A27D75222000A137C /* UserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInteractor.swift; sourceTree = "<group>"; };
-		99BFC7DE281045CE00568E29 /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
-		99BFC7DF281045CE00568E29 /* AuthWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthWorker.swift; sourceTree = "<group>"; };
+		99A8CFC3281C1CE80036CCCD /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
 		99BFC7E0281045CE00568E29 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		99BFC7E1281045CE00568E29 /* AuthModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModels.swift; sourceTree = "<group>"; };
 		99BFC7E2281045CE00568E29 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
-		99BFC7E3281045CE00568E29 /* AuthInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInteractor.swift; sourceTree = "<group>"; };
 		99FA0CC527DBB730006D8609 /* UIImage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
 		99FA0CCB27DCD2DC006D8609 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		99FA0CCD27DDD94E006D8609 /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
@@ -123,6 +120,7 @@
 				99FA0CD127DE09E5006D8609 /* OrderedCollections in Frameworks */,
 				99FA0CC127DBB5F3006D8609 /* HSEAuth in Frameworks */,
 				99FA0CBB27DBB465006D8609 /* SnapKit in Frameworks */,
+				99A8CFC2281BF53B0036CCCD /* JWTDecode in Frameworks */,
 				99FA0CBE27DBB582006D8609 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -191,6 +189,7 @@
 		996F004127D746A2000A137C /* HSE Clubs */ = {
 			isa = PBXGroup;
 			children = (
+				99A8CFC3281C1CE80036CCCD /* Requests.swift */,
 				990CC15227DF4B3400CD7BA9 /* Club */,
 				996F004227D746A2000A137C /* AppDelegate.swift */,
 				996F004427D746A2000A137C /* SceneDelegate.swift */,
@@ -240,12 +239,9 @@
 		99BFC7EA281045DD00568E29 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				99BFC7DE281045CE00568E29 /* AuthPresenter.swift */,
-				99BFC7DF281045CE00568E29 /* AuthWorker.swift */,
 				99BFC7E0281045CE00568E29 /* AuthRouter.swift */,
 				99BFC7E1281045CE00568E29 /* AuthModels.swift */,
 				99BFC7E2281045CE00568E29 /* AuthViewController.swift */,
-				99BFC7E3281045CE00568E29 /* AuthInteractor.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -294,6 +290,7 @@
 				99FA0CBD27DBB582006D8609 /* Alamofire */,
 				99FA0CC027DBB5F3006D8609 /* HSEAuth */,
 				99FA0CD027DE09E5006D8609 /* OrderedCollections */,
+				99A8CFC1281BF53B0036CCCD /* JWTDecode */,
 			);
 			productName = "HSE Clubs";
 			productReference = 996F003F27D746A2000A137C /* HSE Clubs.app */;
@@ -372,6 +369,7 @@
 				99FA0CBC27DBB582006D8609 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				99FA0CBF27DBB5F3006D8609 /* XCRemoteSwiftPackageReference "HSEAuth-iOS" */,
 				99FA0CCF27DE09E5006D8609 /* XCRemoteSwiftPackageReference "swift-collections" */,
+				99A8CFC0281BF53B0036CCCD /* XCRemoteSwiftPackageReference "JWTDecode.swift" */,
 			);
 			productRefGroup = 996F004027D746A2000A137C /* Products */;
 			projectDirPath = "";
@@ -419,7 +417,6 @@
 				99BFC7E7281045CE00568E29 /* AuthModels.swift in Sources */,
 				99FA0CCC27DCD2DC006D8609 /* UserView.swift in Sources */,
 				990CC14D27DF4B2C00CD7BA9 /* ClubWorker.swift in Sources */,
-				99BFC7E9281045CE00568E29 /* AuthInteractor.swift in Sources */,
 				990CC15727DFA7A300CD7BA9 /* AdministratorView.swift in Sources */,
 				996F004327D746A2000A137C /* AppDelegate.swift in Sources */,
 				996F008027D75222000A137C /* UserInteractor.swift in Sources */,
@@ -430,10 +427,8 @@
 				990CC15527DF653300CD7BA9 /* ClubNameView.swift in Sources */,
 				996F007F27D75222000A137C /* UserViewController.swift in Sources */,
 				99FA0CD927DE0F25006D8609 /* SearchWorker.swift in Sources */,
-				99BFC7E4281045CE00568E29 /* AuthPresenter.swift in Sources */,
 				99BFC7E6281045CE00568E29 /* AuthRouter.swift in Sources */,
 				990CC14E27DF4B2C00CD7BA9 /* ClubRouter.swift in Sources */,
-				99BFC7E5281045CE00568E29 /* AuthWorker.swift in Sources */,
 				99FA0CDA27DE0F25006D8609 /* SearchRouter.swift in Sources */,
 				990CC15927E0AB7F00CD7BA9 /* EventView.swift in Sources */,
 				99FA0CDB27DE0F25006D8609 /* SearchModels.swift in Sources */,
@@ -445,6 +440,7 @@
 				990CC15127DF4B2C00CD7BA9 /* ClubInteractor.swift in Sources */,
 				99FA0CDD27DE0F25006D8609 /* SearchInteractor.swift in Sources */,
 				996F007C27D75222000A137C /* UserWorker.swift in Sources */,
+				99A8CFC4281C1CE80036CCCD /* Requests.swift in Sources */,
 				99FA0CD827DE0F25006D8609 /* SearchPresenter.swift in Sources */,
 				996F004D27D746A2000A137C /* HSE_Clubs.xcdatamodeld in Sources */,
 				996F004527D746A2000A137C /* SceneDelegate.swift in Sources */,
@@ -784,6 +780,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		99A8CFC0281BF53B0036CCCD /* XCRemoteSwiftPackageReference "JWTDecode.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/auth0/JWTDecode.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		99FA0CB927DBB465006D8609 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -819,6 +823,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		99A8CFC1281BF53B0036CCCD /* JWTDecode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99A8CFC0281BF53B0036CCCD /* XCRemoteSwiftPackageReference "JWTDecode.swift" */;
+			productName = JWTDecode;
+		};
 		99FA0CBA27DBB465006D8609 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 99FA0CB927DBB465006D8609 /* XCRemoteSwiftPackageReference "SnapKit" */;

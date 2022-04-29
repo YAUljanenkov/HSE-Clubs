@@ -14,18 +14,11 @@ import UIKit
 
 enum Auth
 {
-  // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request
+    // MARK: Use cases
+    struct Request: Codable
     {
+        var UniqueName: String?
+        var Email: String?
+        var Name: String?
     }
-    struct Response
-    {
-    }
-    struct ViewModel
-    {
-    }
-  }
 }

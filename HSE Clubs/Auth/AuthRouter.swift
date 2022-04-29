@@ -17,15 +17,9 @@ import UIKit
   //func routeToSomewhere(segue: UIStoryboardSegue?)
 }
 
-protocol AuthDataPassing
-{
-  var dataStore: AuthDataStore? { get }
-}
-
-class AuthRouter: NSObject, AuthRoutingLogic, AuthDataPassing
+class AuthRouter: NSObject, AuthRoutingLogic
 {
   weak var viewController: AuthViewController?
-  var dataStore: AuthDataStore?
   
   // MARK: Routing
   

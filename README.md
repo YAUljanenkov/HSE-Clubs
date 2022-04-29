@@ -13,3 +13,5 @@ HSEUI - https://github.com/hseapp/HSEUI
 Alamofire - https://github.com/Alamofire/Alamofire
 
 SnapKit - https://github.com/SnapKit/SnapKit
+
+JWTDecode - https://github.com/auth0/JWTDecode.swift.git

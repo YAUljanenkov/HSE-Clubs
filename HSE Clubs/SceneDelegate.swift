@@ -15,56 +15,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        let tabBarController = UITabBarController()
-        
-        if #available(iOS 13.0, *) {
-            let tabBarAppearance: UITabBarAppearance = UITabBarAppearance()
-            tabBarAppearance.configureWithDefaultBackground()
-            tabBarAppearance.backgroundColor = UIColor(named: "barBackground")
-            UITabBar.appearance().standardAppearance = tabBarAppearance
-
-            if #available(iOS 15.0, *) {
-                UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
-            }
-        }
-        
-        if #available(iOS 15.0, *) {
-            let navigationBarAppearance = UINavigationBarAppearance()
-            navigationBarAppearance.configureWithDefaultBackground()
-            UINavigationBar.appearance().standardAppearance = navigationBarAppearance
-            UINavigationBar.appearance().compactAppearance = navigationBarAppearance
-            UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
-        } 
-        
-        let viewControllers = [
-            SearchViewController(),
-            ClubViewController(),
-//            UserViewController(),
-            UserViewController()
-        ]
-        tabBarController.setViewControllers(viewControllers, animated: false)
         let nav = UINavigationController(rootViewController: AuthViewController())
         window.rootViewController = nav
         self.window = window
         window.makeKeyAndVisible()
-        
-        guard let items = tabBarController.tabBar.items else { return }
-        let titles = ["Поиск", "Клубы",
-//                      "Календарь",
-                      "Профиль"]
-        let imageScale = 32
-        
-        let images = [
-            UIImage(named: "search")?.resize(withSize: CGSize(width: imageScale, height: imageScale)),
-            UIImage(named: "people")?.resize(withSize: CGSize(width: imageScale, height: imageScale)),
-//            UIImage(named: "calendar")?.resize(withSize: CGSize(width: imageScale, height: imageScale)),
-            UIImage(named: "person")?.resize(withSize: CGSize(width: imageScale, height: imageScale))
-        ]
-        
-        for i in 0..<viewControllers.count {
-            viewControllers[i].title = titles[i]
-            items[i].image = images[i]
-        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -97,7 +51,60 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
+    
+    
+    public static func createTabController() -> UITabBarController? {
+        let tabBarController = UITabBarController()
+        
+        if #available(iOS 13.0, *) {
+            let tabBarAppearance: UITabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.configureWithDefaultBackground()
+            tabBarAppearance.backgroundColor = UIColor(named: "barBackground")
+            UITabBar.appearance().standardAppearance = tabBarAppearance
 
+            if #available(iOS 15.0, *) {
+                UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+            }
+        }
+        
+        if #available(iOS 15.0, *) {
+            let navigationBarAppearance = UINavigationBarAppearance()
+            navigationBarAppearance.configureWithDefaultBackground()
+            UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+            UINavigationBar.appearance().compactAppearance = navigationBarAppearance
+            UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+        }
+        
+        let viewControllers = [
+            SearchViewController(),
+            ClubViewController(),
+//            UserViewController(),
+            UserViewController()
+        ]
+        tabBarController.setViewControllers(viewControllers, animated: false)
+        
+        guard let items = tabBarController.tabBar.items else { return nil}
+        let titles = ["Поиск", "Клубы",
+//                      "Календарь",
+                      "Профиль"]
+        let imageScale = 32
+        
+        let images = [
+            UIImage(named: "search")?.resize(withSize: CGSize(width: imageScale, height: imageScale)),
+            UIImage(named: "people")?.resize(withSize: CGSize(width: imageScale, height: imageScale)),
+//            UIImage(named: "calendar")?.resize(withSize: CGSize(width: imageScale, height: imageScale)),
+            UIImage(named: "person")?.resize(withSize: CGSize(width: imageScale, height: imageScale))
+        ]
+        
+        for i in 0..<viewControllers.count {
+            viewControllers[i].title = titles[i]
+            items[i].image = images[i]
+        }
+        
+        return tabBarController
+    }
+    
+    
 
 }
 
