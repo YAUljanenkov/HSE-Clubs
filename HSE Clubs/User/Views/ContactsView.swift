@@ -13,6 +13,11 @@ class ContactsView: UIView {
     
     var data: OrderedDictionary<String, String> = [:]
     
+    var tg: UILabel = UILabel()
+    var vk: UILabel = UILabel()
+    var email: UILabel = UILabel()
+    
+    
     init(frame: CGRect, tg: String, vk: String, email: String) {
         super.init(frame: frame)
         let contacts = UIStackView()
@@ -21,6 +26,7 @@ class ContactsView: UIView {
         contacts.spacing = 5
         
         self.data = ["vk": vk, "telegram": tg, "email": email]
+        let labels =  ["vk": self.vk, "telegram": self.tg, "email": self.email]
         let tags = ["vk": 1, "telegram": 2, "email": 3]
         
         data.forEach { (key, value) in
@@ -32,7 +38,7 @@ class ContactsView: UIView {
             let icon = UIImageView(image: UIImage(named: key)?.resize(withSize: CGSize(width: 30, height: 30)))
             contact.addArrangedSubview(icon)
             
-            let text = UILabel()
+            guard let text = labels[key] else {return}
             text.text = value
             text.font = UIFont.systemFont(ofSize: 18, weight: .light)
             contact.addArrangedSubview(text)
@@ -87,5 +93,17 @@ class ContactsView: UIView {
         }
         
         UIPasteboard.general.string = link
+    }
+    
+    func setEmail(email: String) {
+        self.email.text = email
+    }
+    
+    func setVK(vk: String) {
+        self.vk.text = vk
+    }
+    
+    func setTelegram(telegram: String) {
+        self.tg.text = telegram
     }
 }

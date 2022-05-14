@@ -15,7 +15,7 @@ import SnapKit
 
 protocol UserDisplayLogic: AnyObject
 {
-    func displaySomething(viewModel: User.Something.ViewModel)
+    func displayUser(user: User.Response)
 }
 
 class UserViewController: UIViewController, UserDisplayLogic
@@ -30,6 +30,9 @@ class UserViewController: UIViewController, UserDisplayLogic
         return label
     }()
     
+    var userData: UserView?
+    var contacts: ContactsView?
+    
     // MARK: Object lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
@@ -42,6 +45,7 @@ class UserViewController: UIViewController, UserDisplayLogic
     {
         super.init(coder: aDecoder)
         setup()
+        loadUser()
     }
     
     // MARK: Setup
@@ -78,7 +82,12 @@ class UserViewController: UIViewController, UserDisplayLogic
     {
         super.viewDidLoad()
         view.backgroundColor = .white
-        let userData = UserView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 120), name: "Киану Чарльз Ривз", avatar: UIImage(named: "kianu"), post: "BSE204", department: "FCS SE")
+        
+        
+        userData = UserView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 120), name: "Имя", avatar: UIImage(named: "kianu"), post: "BSE204", department: "FCS SE")
+        guard let userData = userData else {
+            return
+        }
         
         view.addSubview(userData)
         userData.snp.makeConstraints { make in
@@ -94,7 +103,12 @@ class UserViewController: UIViewController, UserDisplayLogic
             make.left.equalTo(view).offset(20)
         }
         
-        let contacts = ContactsView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 120), tg: "@schmitzer", vk: "@schmitzer", email: "uljanenhoff@yandex.ru")
+        contacts = ContactsView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 120), tg: "нет", vk: "нет", email: "нет")
+        
+        guard let contacts = contacts else {
+            return
+        }
+        
         contacts.translatesAutoresizingMaskIntoConstraints = false
         contacts.isUserInteractionEnabled = true
         
@@ -106,27 +120,56 @@ class UserViewController: UIViewController, UserDisplayLogic
             make.height.equalTo(125)
         }
         
-        doSomething()
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        loadUser()
+        
         self.tabBarController?.title = "Профиль"
+        let settingsButton = UIBarButtonItem(title: NSString(string: "\u{2699}\u{0000FE0E}") as String, style: .plain, target: self, action: #selector(self.settingsButton))
+        
+        let attributes = [
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 40)
+        ]
+        
+        settingsButton.setTitleTextAttributes(attributes, for: .normal)
+        settingsButton.setTitleTextAttributes(attributes, for: .selected)
+        
+        self.tabBarController?.navigationItem.rightBarButtonItem = settingsButton
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.tabBarController?.navigationItem.rightBarButtonItem = nil
+
     }
     
     // MARK: Do something
     
     
-    func doSomething()
+    func loadUser()
     {
-        let request = User.Something.Request()
-        interactor?.doSomething(request: request)
+        let request = User.Request()
+        interactor?.getUserData(request: request)
     }
     
-    func displaySomething(viewModel: User.Something.ViewModel)
+    func displayUser(user: User.Response)
     {
-        //nameTextField.text = viewModel.name
+        DispatchQueue.main.async {
+            self.userData?.setName(name: user.name ?? "")
+            self.contacts?.setEmail(email: user.email ?? "нет")
+            self.contacts?.setVK(vk: user.vk ?? "нет")
+            self.contacts?.setTelegram(telegram: user.telegram ?? "нет")
+
+        }
     }
     
-
-
+    @objc func settingsButton(sender: UIButton) {
+        let storyBoard = UIStoryboard(name: "Settings", bundle: nil)
+        let settingsViewController = storyBoard.instantiateViewController(withIdentifier: "Settings")
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.pushViewController(settingsViewController, animated: true)
+    }
 }

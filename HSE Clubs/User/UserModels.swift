@@ -14,18 +14,28 @@ import UIKit
 
 enum User
 {
-  // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request
+    // MARK: Use cases
+    
+    struct Request: Codable
     {
+        let uniqueName: String
+        public init() {
+            uniqueName = UserDefaults.standard.string(forKey: "unique_name") ?? ""
+        }
     }
-    struct Response
+    struct Response: Codable
     {
+        let id: Int?
+        let uniqueName: String?
+        let name: String?
+        let email: String?
+        let vk: String?
+        let telegram: String?
+        let photoPath: String?
+        let isShowContacts: Bool?
+//        let clubs: [Any]?
     }
     struct ViewModel
     {
     }
-  }
 }

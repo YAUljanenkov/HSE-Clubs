@@ -27,7 +27,7 @@ class SearchInteractor: SearchBusinessLogic, SearchDataStore
     var presenter: SearchPresentationLogic?
     var worker: SearchWorker?
     var clubs = [
-        Club(name: "Фан-клуб Гринкруга", description: "Хэйтим С# вместе"),
+//        Club(name: "Фан-клуб Гринкруга", description: "Хэйтим С# вместе"),
         Club(name: "HSE Chess", description: "Chess - game of life"),
         Club(name: "Чайный клуб НИУ ВШЭ", description: "Лучше кофе."),
         Club(name: "Клуб дебатов ВШЭ", description: "Just debating around"),

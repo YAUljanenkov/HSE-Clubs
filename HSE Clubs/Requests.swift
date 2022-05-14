@@ -7,18 +7,26 @@
 
 import UIKit
 
-let host = "http://localhost:5000/api"
-
 enum RequestRoutes {
     case loginUser
     case getUser(String)
+    case updateUser(String)
     
-    static func getRoute(_ route: RequestRoutes) -> String {
+    static func getRoute(_ route: RequestRoutes) -> URL? {
+        
+        var components = URLComponents()
+        components.scheme = "http"
+        components.host = "localhost"
+        components.port = 5000
+        
         switch route {
         case let .getUser(user):
-            return "\(host)/user/\(user)/get/"
+            components.path =  "/api/user/\(user)/get/"
         case .loginUser:
-            return "\(host)/user/login/"
+            components.path =  "/api/user/login/"
+        case let .updateUser(user):
+            components.path = "/api/user/\(user)/update/"
         }
+        return components.url
     }
 }

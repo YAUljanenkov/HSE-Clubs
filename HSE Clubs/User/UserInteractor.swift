@@ -11,31 +11,41 @@
 //
 
 import UIKit
+import Alamofire
 
 protocol UserBusinessLogic
 {
-  func doSomething(request: User.Something.Request)
+    func getUserData(request: User.Request)
 }
 
 protocol UserDataStore
 {
-  //var name: String { get set }
+    //var name: String { get set }
 }
 
 class UserInteractor: UserBusinessLogic, UserDataStore
 {
-  var presenter: UserPresentationLogic?
-  var worker: UserWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: User.Something.Request)
-  {
-    worker = UserWorker()
-    worker?.doSomeWork()
+    var presenter: UserPresentationLogic?
+    var worker: UserWorker?
+    //var name: String = ""
     
-    let response = User.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+    // MARK: Do something
+    
+    func getUserData(request: User.Request)
+    {
+        DispatchQueue.global().async {
+            guard let url = RequestRoutes.getRoute(.getUser(request.uniqueName)) else {return}
+            AF.request(url, method: .get).responseDecodable(of: User.Response.self) { response in
+                print(response.result)
+                
+                switch response.result {
+                case .success:
+                    guard let user = response.value else { return }
+                    self.presenter?.presentUser(response: user)
+                case .failure(let error):
+                    print("Error:", error)
+                }
+            }
+        }
+    }
 }

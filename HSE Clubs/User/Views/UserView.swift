@@ -26,8 +26,10 @@ class UserView: UIView {
         self.avatar.layer.cornerRadius = 40
         self.avatar.clipsToBounds = true
         
-        nameLabel.font = UIFont.systemFont(ofSize: 30, weight: .semibold)
-        nameLabel.adjustsFontSizeToFitWidth = true
+        nameLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+//        nameLabel.adjustsFontSizeToFitWidth = true
+        nameLabel.lineBreakMode = .byWordWrapping
+        nameLabel.numberOfLines = 0
         
         postLabel.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         postLabel.adjustsFontSizeToFitWidth = true
@@ -65,5 +67,9 @@ class UserView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func setName(name: String) {
+        nameLabel.text = name
     }
 }
