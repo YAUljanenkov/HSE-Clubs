@@ -11,10 +11,11 @@
 //
 
 import UIKit
+import Alamofire
 
 protocol ClubBusinessLogic
 {
-  func doSomething(request: ClubData.Something.Request)
+  func loadClub(request: ClubData.Info.Request)
 }
 
 protocol ClubDataStore
@@ -30,12 +31,19 @@ class ClubInteractor: ClubBusinessLogic, ClubDataStore
   
   // MARK: Do something
   
-  func doSomething(request: ClubData.Something.Request)
+  func loadClub(request: ClubData.Info.Request)
   {
-    worker = ClubWorker()
-    worker?.doSomeWork()
-    
-    let response = ClubData.Something.Response()
-    presenter?.presentSomething(response: response)
+      guard let url = RequestRoutes.getRoute(.getClub(request.id)) else {return}
+      AF.request(url, method: .get).responseDecodable(of: ClubData.Info.Response.self) { response in
+          switch response.result {
+          case .success:
+              guard let clubs = response.value else { return }
+              DispatchQueue.main.async {
+                  self.presenter?.presentClub(response: clubs)
+              }
+          case .failure(let error):
+              print("Error:", error)
+          }
+      }
   }
 }

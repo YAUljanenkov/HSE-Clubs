@@ -13,17 +13,16 @@
 import UIKit
 
 
-protocol SearchDisplayLogic: AnyObject
+protocol MyClubsDisplayLogic: AnyObject
 {
-    func displayClubs(clubs: [Club])
+    func displayClubs(clubs: [MyClub])
 }
 
-class SearchViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, SearchDisplayLogic, UISearchControllerDelegate
+class MyClubsViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, MyClubsDisplayLogic, UISearchControllerDelegate
 {
-    var interactor: SearchBusinessLogic?
-    var router: (NSObjectProtocol & SearchRoutingLogic & SearchDataPassing)?
-    let search = UISearchController()
-    var clubs: [Club] = []
+    var interactor: MyClubsBusinessLogic?
+    var router: (NSObjectProtocol & MyClubsRoutingLogic & MyClubsDataPassing)?
+    var clubs: [MyClub] = []
     // MARK: Object lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
@@ -50,9 +49,9 @@ class SearchViewController: UICollectionViewController, UICollectionViewDelegate
     private func setup()
     {
         let viewController = self
-        let interactor = SearchInteractor()
-        let presenter = SearchPresenter()
-        let router = SearchRouter()
+        let interactor = MyClubsInteractor()
+        let presenter = MyClubsPresenter()
+        let router = MyClubsRouter()
         viewController.interactor = interactor
         viewController.router = router
         interactor.presenter = presenter
@@ -79,16 +78,12 @@ class SearchViewController: UICollectionViewController, UICollectionViewDelegate
     {
         super.viewDidLoad()
         view.backgroundColor = .white
-        search.searchResultsUpdater = self
         setupCollectionView()
         updateInformation()
-        self.hideKeyboardWhenTappedAround()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        tabBarController?.navigationItem.searchController = search
-        search.searchBar.placeholder = "Поиск клубов"
-        self.tabBarController?.title = "Поиск"
+        self.tabBarController?.title = "Мои клубы"
         self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed))
         updateInformation()
     }
@@ -117,7 +112,7 @@ class SearchViewController: UICollectionViewController, UICollectionViewDelegate
         collectionView.delegate = self
         collectionView.showsVerticalScrollIndicator = true
         view.addSubview(collectionView)
-        collectionView.register(ClubCell.self, forCellWithReuseIdentifier: ClubCell.cellId)
+        collectionView.register(MyClubCell.self, forCellWithReuseIdentifier: MyClubCell.cellId)
         collectionView.backgroundColor = .white
     }
     
@@ -126,19 +121,19 @@ class SearchViewController: UICollectionViewController, UICollectionViewDelegate
         interactor?.loadClubs()
     }
     
-    func displayClubs(clubs: [Club])
+    func displayClubs(clubs: [MyClub])
     {
         self.clubs = clubs
-        print("worked")
         collectionView.reloadData()
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ClubCell.cellId, for: indexPath) as! ClubCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyClubCell.cellId, for: indexPath) as! MyClubCell
         cell.layer.masksToBounds = true
         let club = self.clubs[indexPath.row]
         cell.customize(name: club.name, description: club.description, avatar: club.avatar)
+        cell.setupEvents(events: club.events)
         
         return cell
     }
@@ -151,26 +146,5 @@ class SearchViewController: UICollectionViewController, UICollectionViewDelegate
         let clubController = ClubViewController()
         clubController.setupId(id: clubs[indexPath.row].id)
         self.navigationController?.pushViewController(clubController, animated: true)
-    }
-}
-
-
-extension SearchViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let text = search.searchBar.text, !text.isEmpty else {
-            return
-        }
-        self.interactor?.loadClubs(query: text)
-    }
-    
-    
-    func hideKeyboardWhenTappedAround() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard() {
-        self.search.searchBar.endEditing(true)
     }
 }

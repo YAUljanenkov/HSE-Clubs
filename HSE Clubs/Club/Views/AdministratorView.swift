@@ -14,6 +14,8 @@ class AdministratorView: UIView {
         let label = UILabel()
         label.text = "Председатель"
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     
@@ -29,6 +31,9 @@ class AdministratorView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 20, weight: .thin)
+//        label.adjustsFontSizeToFitWidth = true
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 0
         return label
     }()
     
@@ -50,64 +55,52 @@ class AdministratorView: UIView {
         let emailButton = UIButton()
         emailButton.setImage(UIImage(named: "email")?.resize(withSize: CGSize(width: 30, height: 30)), for: .normal)
         
-        let contactsStack = UIStackView()
-        contactsStack.axis = .horizontal
-        contactsStack.spacing = 2
-        contactsStack.alignment = .leading
-        contactsStack.distribution = .fillEqually
-        contactsStack.translatesAutoresizingMaskIntoConstraints = false
-        contactsStack.isUserInteractionEnabled = true
-        
-        [vkButton, tgButton, emailButton].forEach {
-            contactsStack.addArrangedSubview($0)
-        }
-        
-        administratorName.text = name
-        
-        
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 10
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.isUserInteractionEnabled = true
-        [administratorName, contactsStack].forEach {
-            stackView.addArrangedSubview($0)
-        }
-        stackView.layoutIfNeeded()
-        
-        
-        let mainStackView = UIStackView()
-        mainStackView.axis = .horizontal
-        mainStackView.spacing = 10
-        mainStackView.distribution = .fillProportionally
-        mainStackView.translatesAutoresizingMaskIntoConstraints = false
-        mainStackView.isUserInteractionEnabled = true
         
         avatarView.image = avatar?.resize(withSize: CGSize(width: 70, height: 70))
         
-        
+        addSubview(avatarView)
         avatarView.snp.makeConstraints { make in
             make.width.equalTo(70)
             make.height.equalTo(70)
+            make.left.equalToSuperview().inset(10)
+            make.top.equalTo(administratorTitle.snp.bottom).offset(20)
         }
         
-        [avatarView, stackView].forEach {
-            mainStackView.addArrangedSubview($0)
-        }
-        
-        
-        addSubview(mainStackView)
-        
-
-        mainStackView.snp.makeConstraints { make in
+        addSubview(administratorName)
+        administratorName.snp.makeConstraints { make in
             make.top.equalTo(administratorTitle.snp.bottom).offset(10)
-            make.left.equalToSuperview()
-            make.bottom.equalToSuperview()
+            make.left.equalTo(avatarView.snp.right).offset(10)
+            make.right.equalToSuperview().inset(10)
         }
+        
+        addSubview(vkButton)
+        addSubview(tgButton)
+        addSubview(emailButton)
+        
+        vkButton.snp.makeConstraints {make in
+            make.top.equalTo(administratorName.snp.bottom).offset(10)
+            make.left.equalTo(avatarView.snp.right).offset(10)
+        }
+        
+        tgButton.snp.makeConstraints { make in
+            make.top.equalTo(administratorName.snp.bottom).offset(10)
+            make.left.equalTo(vkButton.snp.right).offset(10)
+        }
+        
+        emailButton.snp.makeConstraints { make in
+            make.top.equalTo(administratorName.snp.bottom).offset(10)
+            make.left.equalTo(tgButton.snp.right).offset(10)
+        }
+        
 
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func setupAdministratorName(name: String) {
+        administratorName.text = name
+    }
+    
 }

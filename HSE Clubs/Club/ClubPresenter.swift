@@ -14,7 +14,7 @@ import UIKit
 
 protocol ClubPresentationLogic
 {
-  func presentSomething(response: ClubData.Something.Response)
+  func presentClub(response: ClubData.Info.Response)
 }
 
 class ClubPresenter: ClubPresentationLogic
@@ -23,9 +23,8 @@ class ClubPresenter: ClubPresentationLogic
   
   // MARK: Do something
   
-  func presentSomething(response: ClubData.Something.Response)
+  func presentClub(response: ClubData.Info.Response)
   {
-    let viewModel = ClubData.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
+    viewController?.displayClubData(clubModel: response)
   }
 }

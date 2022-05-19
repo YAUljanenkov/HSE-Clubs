@@ -15,7 +15,7 @@ import SnapKit
 
 protocol ClubDisplayLogic: AnyObject
 {
-    func displaySomething(viewModel: ClubData.Something.ViewModel)
+    func displayClubData(clubModel: ClubData.Info.Response)
 }
 
 class ClubViewController: UIViewController, ClubDisplayLogic
@@ -25,6 +25,18 @@ class ClubViewController: UIViewController, ClubDisplayLogic
     var clubName: String? = "HSE JEWS"
     var clubDescription: String? = "Клуб создан для всех потомков Авраама и для тех, кто хочет вернуться на землю Обетованную"
     var avatar: UIImage? = UIImage(named: "fkn")
+    var clubID: Int?
+    var clubNameView: ClubNameView?
+    var administratorName: AdministratorView?
+    var eventStackView: UIStackView = {
+       let stackView = UIStackView()
+        stackView.spacing = 10
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+        stackView.alignment = .fill
+        return stackView
+    }()
+    
     
     let eventsTitle: UILabel = {
         let label = UILabel()
@@ -46,6 +58,10 @@ class ClubViewController: UIViewController, ClubDisplayLogic
     {
         super.init(coder: aDecoder)
         setup()
+    }
+    
+    public func setupId(id: Int) {
+        clubID = id
     }
     
     // MARK: Setup
@@ -83,64 +99,135 @@ class ClubViewController: UIViewController, ClubDisplayLogic
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        let clubName = ClubNameView(frame: CGRect(x: 0, y: 0, width: view.bounds.width - 40, height: 200), name: clubName, avatar: avatar, description: clubDescription)
+         clubNameView = ClubNameView(frame: CGRect(x: 0, y: 0, width: view.bounds.width - 40, height: 200), name: clubName, avatar: avatar, description: clubDescription)
         
-        view.addSubview(clubName)
-        
-        clubName.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
-            make.left.equalToSuperview().offset(20)
-//            make.height.equalTo(150)
-            make.width.equalToSuperview().offset(-40)
+        if let clubNameView = clubNameView {
+            view.addSubview(clubNameView)
+            clubNameView.snp.makeConstraints { make in
+                make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
+                make.left.equalToSuperview().offset(20)
+    //            make.height.equalTo(150)
+                make.width.equalToSuperview().offset(-40)
+            }
         }
         
-        let administratorName = AdministratorView(frame: CGRect(x: 0, y: 0, width: view.bounds.width - 40, height: 200), name: "Киану Чарльз Ривз", vk: "@kianu.reeves", telegram: "knchrvs", email: "kianu@reeves.com", avatar: UIImage(named: "kianu"))
+        
+        administratorName = AdministratorView(frame: CGRect(x: 0, y: 0, width: view.bounds.width - 40, height: 200), name: "Киану Чарльз Ривз", vk: "@kianu.reeves", telegram: "knchrvs", email: "kianu@reeves.com", avatar: UIImage(named: "kianu"))
+        
+        guard let administratorName = administratorName else {
+            return
+        }
         
         view.addSubview(administratorName)
         administratorName.snp.makeConstraints { make in
-            make.top.equalTo(clubName.snp.bottom).offset(20)
+            make.top.equalTo(clubNameView?.snp.bottom ?? view.snp.bottom).offset(20)
             make.left.equalToSuperview().offset(20)
             make.right.equalToSuperview().offset(20)
-            make.height.equalTo(100)
+            make.height.equalTo(140)
         }
+        
         
         view.addSubview(eventsTitle)
         
         eventsTitle.snp.makeConstraints { make in
-            make.top.equalTo(administratorName.snp.bottom).offset(20)
+            make.top.equalTo(administratorName.snp.bottom).offset(5)
             make.left.equalToSuperview().offset(20)
         }
         
-        
-        let event = EventView(frame: CGRect(x: 0, y: 0, width: 350, height: 150), name: "Знакомство с клубом", description: "На первой встречи клуба мы познакомимся с алфавитом иврита и изучим иудейский календарь.", date: "01.04.2022 12:30", place: "R204")
-        
-        view.addSubview(event)
-        event.snp.makeConstraints { make in
+        eventStackView.addHorizontalSeparators(color: .lightGray)
+        eventStackView.translatesAutoresizingMaskIntoConstraints = false
+        let scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 200))
+//        scrollView.clipsToBounds = true
+        scrollView.addSubview(eventStackView)
+        scrollView.isScrollEnabled = true
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(scrollView)
+
+        scrollView.snp.makeConstraints { make in
             make.top.equalTo(eventsTitle.snp.bottom).offset(20)
             make.left.equalToSuperview().offset(20)
-            make.width.equalTo(350)
-            make.height.equalTo(150)
+            make.right.equalToSuperview().inset(20)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
-        doSomething()
+        
+        eventStackView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.left.equalTo(view).offset(20)
+            make.right.equalTo(view).inset(20)
+//            make.bottom.equalTo(view)
+        }
+        
+        loadClubData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         self.tabBarController?.title = "Клуб"
+        self.navigationItem.title = "Клуб"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed))
+        loadClubData()
+    }
+    
+    @objc func addButtonPressed(sender: UIButton) {
+        let storyBoard = UIStoryboard(name: "AddEvent", bundle: nil)
+        let eventCreationController: AddEventController = storyBoard.instantiateViewController(withIdentifier: "AddEvent") as! AddEventController
+        self.navigationController?.isNavigationBarHidden = false
+        eventCreationController.setupClubID(clubId: clubID)
+        self.navigationController?.pushViewController(eventCreationController, animated: true)
     }
     
     
     // MARK: Do something
-    
-    //@IBOutlet weak var nameTextField: UITextField!
-    
-    func doSomething()
+        
+    func loadClubData()
     {
-        let request = ClubData.Something.Request()
-        interactor?.doSomething(request: request)
+        guard let clubID = clubID else {
+            return
+        }
+        
+        let request = ClubData.Info.Request(id: clubID)
+        interactor?.loadClub(request: request)
     }
     
-    func displaySomething(viewModel: ClubData.Something.ViewModel)
+    func displayClubData(clubModel: ClubData.Info.Response)
     {
-        //nameTextField.text = viewModel.name
+        clubNameView?.setupName(name: clubModel.name)
+        clubNameView?.setupDescription(description: clubModel.description)
+        administratorName?.setupAdministratorName(name: clubModel.administrator.name ?? "")
+        
+        for v in self.eventStackView.arrangedSubviews {
+            v.removeFromSuperview()
+        }
+        
+        clubModel.events.forEach {
+            let event = EventView(frame: CGRect(x: 0, y: 0, width: 350, height: 150), name: $0.name, description: $0.description, date: $0.dateTime ?? "", place: $0.place)
+            eventStackView.addArrangedSubview(event)
+            event.snp.makeConstraints { make in
+//                make.height.equalTo(100)
+                make.width.equalToSuperview()
+            }
+            event.clipsToBounds = true
+        }
+        
+    }
+}
+
+
+extension UIStackView {
+    func addHorizontalSeparators(color : UIColor) {
+        var i = self.arrangedSubviews.count
+        while i >= 0 {
+            let separator = createSeparator(color: color)
+            insertArrangedSubview(separator, at: i)
+            separator.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1).isActive = true
+            i -= 1
+        }
+    }
+
+    private func createSeparator(color : UIColor) -> UIView {
+        let separator = UIView()
+        separator.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        separator.backgroundColor = color
+        return separator
     }
 }

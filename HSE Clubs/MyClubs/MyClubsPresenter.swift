@@ -12,22 +12,22 @@
 
 import UIKit
 
-protocol SearchPresentationLogic
+protocol MyClubsPresentationLogic
 {
-    func presentClubs(clubs: [ClubModel])
+    func presentClubs(clubs: [MyClubModel])
 }
 
-class SearchPresenter: SearchPresentationLogic
+class MyClubsPresenter: MyClubsPresentationLogic
 {
-    weak var viewController: SearchDisplayLogic?
+    weak var viewController: MyClubsDisplayLogic?
     
     // MARK: Do something
     
-    func presentClubs(clubs: [ClubModel])
+    func presentClubs(clubs: [MyClubModel])
     {
-        var clubViews: [Club] = []
+        var clubViews: [MyClub] = []
         for club in clubs {
-            clubViews.append(Club(name: club.name ?? "Пусто", description: club.description ?? "Пусто", id: club.id))
+            clubViews.append(MyClub(name: club.name ?? "Пусто", description: club.description ?? "Пусто", id: club.id, events: club.events))
         }
         viewController?.displayClubs(clubs: clubViews)
     }

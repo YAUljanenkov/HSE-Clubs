@@ -49,15 +49,15 @@ class ClubCell: UICollectionViewCell {
         mainStackView.spacing = 10
         mainStackView.distribution = .fillProportionally
         
-        let addIcon = UIImageView(image: UIImage(named: "add group")?.resize(withSize: CGSize(width: 32, height: 16)))
+        let addIcon = UIImageView(image: UIImage(named: "added group")?.resize(withSize: CGSize(width: 32, height: 16)))
         addIcon.contentMode = .scaleAspectFit
         addIcon.translatesAutoresizingMaskIntoConstraints = false
-        [avatar, textStackView, addIcon].forEach {
+        [avatar, textStackView].forEach {
             mainStackView.addArrangedSubview($0)
         }
         
         textStackView.snp.makeConstraints { make in
-            make.height.equalTo(80)
+            make.height.equalTo(60)
         }
         
         avatar.snp.makeConstraints { make in
@@ -65,11 +65,14 @@ class ClubCell: UICollectionViewCell {
             make.height.equalTo(ClubCell.cellSize)
         }
         
+        addSubview(addIcon)
         addIcon.snp.makeConstraints { make in
             make.width.equalTo(32)
-            make.height.equalTo(16)
+            make.height.equalTo(50)
+            make.top.equalToSuperview().inset(10)
+            make.right.equalToSuperview().inset(10)
         }
-        
+    
         addSubview(mainStackView)
         
         mainStackView.snp.makeConstraints { make in

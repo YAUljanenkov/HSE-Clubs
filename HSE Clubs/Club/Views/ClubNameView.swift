@@ -14,6 +14,7 @@ class ClubNameView: UIView {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 30, weight: .semibold)
         label.adjustsFontSizeToFitWidth = true
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     var avatar = UIImageView()
@@ -36,6 +37,7 @@ class ClubNameView: UIView {
         
         self.avatar.layer.cornerRadius = 40
         self.avatar.clipsToBounds = true
+        self.avatar.translatesAutoresizingMaskIntoConstraints = false
                 
         let labelsStackView = UIStackView()
         labelsStackView.axis = .vertical
@@ -69,5 +71,13 @@ class ClubNameView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupName(name: String) {
+        nameLabel.text = name
+    }
+    
+    func setupDescription(description: String) {
+        descriptionLabel.text = description
     }
 }

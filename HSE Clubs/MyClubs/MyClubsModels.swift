@@ -12,24 +12,27 @@
 
 import UIKit
 
-struct ClubModel: Codable {
+struct MyClubModel: Codable {
     var administratorID: Int
     var avatarPath: String?
     var description: String?
     var id: Int
+    var events: [ClubData.Info.Event]
     var name: String?
 }
 
-struct Club {
+struct MyClub {
     var name: String
     var description: String
     var avatar: UIImage?
+    var events: [ClubData.Info.Event]
     var id: Int
     
-    init(name: String, description: String, id: Int) {
+    init(name: String, description: String, id: Int, events: [ClubData.Info.Event]) {
         self.name = name
         self.id = id
         self.description = description
         avatar = UIImage(named: "fkn")
+        self.events = events
     }
 }

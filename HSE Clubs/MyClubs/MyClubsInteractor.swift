@@ -13,22 +13,21 @@
 import UIKit
 import Alamofire
 
-protocol SearchBusinessLogic
+protocol MyClubsBusinessLogic
 {
     func loadClubs()
-    func loadClubs(query: String)
 }
 
-protocol SearchDataStore
+protocol MyClubsDataStore
 {
-    var clubs: [Club] { get set }
+    var clubs: [MyClub] { get set }
 }
 
-class SearchInteractor: SearchBusinessLogic, SearchDataStore
+class MyClubsInteractor: MyClubsBusinessLogic, MyClubsDataStore
 {
-    var presenter: SearchPresentationLogic?
-    var worker: SearchWorker?
-    var clubs: [Club] = [
+    var presenter:MyClubsPresentationLogic?
+    var worker: MyClubsWorker?
+    var clubs: [MyClub] = [
 //        Club(name: "Фан-клуб Гринкруга", description: "Хэйтим С# вместе"),
 //        Club(name: "HSE Chess", description: "Chess - game of life"),
 //        Club(name: "Чайный клуб НИУ ВШЭ", description: "Лучше кофе."),
@@ -44,23 +43,7 @@ class SearchInteractor: SearchBusinessLogic, SearchDataStore
     func loadClubs()
     {
         guard let url = RequestRoutes.getRoute(.getClubs) else {return}
-        AF.request(url, method: .get).responseDecodable(of: [ClubModel].self) { response in
-            switch response.result {
-            case .success:
-                guard let clubs = response.value else { return }
-                DispatchQueue.main.async {
-                    self.presenter?.presentClubs(clubs: clubs)
-                }
-            case .failure(let error):
-                print("Error:", error)
-            }
-        }
-    }
-    
-    func loadClubs(query: String)
-    {
-        guard let url = RequestRoutes.getRoute(.getClubs) else {return}
-        AF.request(url, method: .get, parameters: ["query": query]).responseDecodable(of: [ClubModel].self) { response in
+        AF.request(url, method: .get).responseDecodable(of: [MyClubModel].self) { response in
             switch response.result {
             case .success:
                 guard let clubs = response.value else { return }

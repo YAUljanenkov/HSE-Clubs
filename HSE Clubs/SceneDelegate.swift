@@ -77,7 +77,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let viewControllers = [
             SearchViewController(),
-            ClubViewController(),
+            MyClubsViewController(),
 //            UserViewController(),
             UserViewController()
         ]

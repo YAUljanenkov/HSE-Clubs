@@ -14,18 +14,32 @@ import UIKit
 
 enum ClubData
 {
-  // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request
+    // MARK: Use cases
+    
+    enum Info
     {
+        struct Request: Codable
+        {
+            var id: Int
+        }
+        struct Response: Codable
+        {
+            var id: Int
+            var name: String
+            var description: String
+            var avatarPath: String?
+            var administrator: User.Response
+            var events: [Event]
+        }
+        
+        struct Event: Codable {
+            var name: String?
+            var description: String?
+            var dateTime: String?
+            var place: String?
+        }
+        struct ViewModel
+        {
+        }
     }
-    struct Response
-    {
-    }
-    struct ViewModel
-    {
-    }
-  }
 }

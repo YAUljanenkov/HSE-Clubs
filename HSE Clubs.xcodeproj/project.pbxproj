@@ -19,6 +19,18 @@
 		990CC15527DF653300CD7BA9 /* ClubNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990CC15427DF653300CD7BA9 /* ClubNameView.swift */; };
 		990CC15727DFA7A300CD7BA9 /* AdministratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990CC15627DFA7A300CD7BA9 /* AdministratorView.swift */; };
 		990CC15927E0AB7F00CD7BA9 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990CC15827E0AB7F00CD7BA9 /* EventView.swift */; };
+		9959A433283531420019FDB2 /* ClubCreationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9959A432283531420019FDB2 /* ClubCreationController.swift */; };
+		9959A4352835315B0019FDB2 /* ClubCreation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9959A4342835315B0019FDB2 /* ClubCreation.storyboard */; };
+		9959A43728362BD80019FDB2 /* HairLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9959A43628362BD80019FDB2 /* HairLineView.swift */; };
+		9959A43A283634160019FDB2 /* AddEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9959A439283634160019FDB2 /* AddEventController.swift */; };
+		9959A43C2836342F0019FDB2 /* AddEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9959A43B2836342F0019FDB2 /* AddEvent.storyboard */; };
+		9959A44728364BA50019FDB2 /* MyClubsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9959A44028364BA50019FDB2 /* MyClubsViewController.swift */; };
+		9959A44828364BA50019FDB2 /* MyClubsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9959A44128364BA50019FDB2 /* MyClubsWorker.swift */; };
+		9959A44928364BA50019FDB2 /* MyClubsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9959A44228364BA50019FDB2 /* MyClubsRouter.swift */; };
+		9959A44A28364BA50019FDB2 /* MyClubsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9959A44328364BA50019FDB2 /* MyClubsModels.swift */; };
+		9959A44B28364BA50019FDB2 /* MyClubsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9959A44428364BA50019FDB2 /* MyClubsInteractor.swift */; };
+		9959A44C28364BA50019FDB2 /* MyClubsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9959A44528364BA50019FDB2 /* MyClubsPresenter.swift */; };
+		9959A44F28364FA10019FDB2 /* ClubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9959A44E28364FA10019FDB2 /* ClubCell.swift */; };
 		996F004327D746A2000A137C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996F004227D746A2000A137C /* AppDelegate.swift */; };
 		996F004527D746A2000A137C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996F004427D746A2000A137C /* SceneDelegate.swift */; };
 		996F004D27D746A2000A137C /* HSE_Clubs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 996F004B27D746A2000A137C /* HSE_Clubs.xcdatamodeld */; };
@@ -50,7 +62,7 @@
 		99FA0CDB27DE0F25006D8609 /* SearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA0CD527DE0F25006D8609 /* SearchModels.swift */; };
 		99FA0CDC27DE0F25006D8609 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA0CD627DE0F25006D8609 /* SearchViewController.swift */; };
 		99FA0CDD27DE0F25006D8609 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA0CD727DE0F25006D8609 /* SearchInteractor.swift */; };
-		99FA0CE027DE12B6006D8609 /* ClubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA0CDF27DE12B6006D8609 /* ClubCell.swift */; };
+		99FA0CE027DE12B6006D8609 /* MyClubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA0CDF27DE12B6006D8609 /* MyClubCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +95,18 @@
 		990CC15427DF653300CD7BA9 /* ClubNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubNameView.swift; sourceTree = "<group>"; };
 		990CC15627DFA7A300CD7BA9 /* AdministratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdministratorView.swift; sourceTree = "<group>"; };
 		990CC15827E0AB7F00CD7BA9 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
+		9959A432283531420019FDB2 /* ClubCreationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubCreationController.swift; sourceTree = "<group>"; };
+		9959A4342835315B0019FDB2 /* ClubCreation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClubCreation.storyboard; sourceTree = "<group>"; };
+		9959A43628362BD80019FDB2 /* HairLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HairLineView.swift; sourceTree = "<group>"; };
+		9959A439283634160019FDB2 /* AddEventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventController.swift; sourceTree = "<group>"; };
+		9959A43B2836342F0019FDB2 /* AddEvent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddEvent.storyboard; sourceTree = "<group>"; };
+		9959A44028364BA50019FDB2 /* MyClubsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyClubsViewController.swift; sourceTree = "<group>"; };
+		9959A44128364BA50019FDB2 /* MyClubsWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyClubsWorker.swift; sourceTree = "<group>"; };
+		9959A44228364BA50019FDB2 /* MyClubsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyClubsRouter.swift; sourceTree = "<group>"; };
+		9959A44328364BA50019FDB2 /* MyClubsModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyClubsModels.swift; sourceTree = "<group>"; };
+		9959A44428364BA50019FDB2 /* MyClubsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyClubsInteractor.swift; sourceTree = "<group>"; };
+		9959A44528364BA50019FDB2 /* MyClubsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyClubsPresenter.swift; sourceTree = "<group>"; };
+		9959A44E28364FA10019FDB2 /* ClubCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClubCell.swift; path = "HSE Clubs/MyClubs/ClubCell.swift"; sourceTree = SOURCE_ROOT; };
 		996F003F27D746A2000A137C /* HSE Clubs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HSE Clubs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		996F004227D746A2000A137C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		996F004427D746A2000A137C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,7 +137,7 @@
 		99FA0CD527DE0F25006D8609 /* SearchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModels.swift; sourceTree = "<group>"; };
 		99FA0CD627DE0F25006D8609 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		99FA0CD727DE0F25006D8609 /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
-		99FA0CDF27DE12B6006D8609 /* ClubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubCell.swift; sourceTree = "<group>"; };
+		99FA0CDF27DE12B6006D8609 /* MyClubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyClubCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +203,38 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		9959A431283531290019FDB2 /* ClubCreation */ = {
+			isa = PBXGroup;
+			children = (
+				9959A432283531420019FDB2 /* ClubCreationController.swift */,
+				9959A4342835315B0019FDB2 /* ClubCreation.storyboard */,
+			);
+			path = ClubCreation;
+			sourceTree = "<group>";
+		};
+		9959A438283634050019FDB2 /* AddEvent */ = {
+			isa = PBXGroup;
+			children = (
+				9959A439283634160019FDB2 /* AddEventController.swift */,
+				9959A43B2836342F0019FDB2 /* AddEvent.storyboard */,
+			);
+			path = AddEvent;
+			sourceTree = "<group>";
+		};
+		9959A43D28364B410019FDB2 /* MyClubs */ = {
+			isa = PBXGroup;
+			children = (
+				9959A44428364BA50019FDB2 /* MyClubsInteractor.swift */,
+				9959A44328364BA50019FDB2 /* MyClubsModels.swift */,
+				9959A44528364BA50019FDB2 /* MyClubsPresenter.swift */,
+				9959A44228364BA50019FDB2 /* MyClubsRouter.swift */,
+				9959A44028364BA50019FDB2 /* MyClubsViewController.swift */,
+				9959A44128364BA50019FDB2 /* MyClubsWorker.swift */,
+				99FA0CDF27DE12B6006D8609 /* MyClubCell.swift */,
+			);
+			path = MyClubs;
+			sourceTree = "<group>";
+		};
 		996F003627D746A2000A137C = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +258,9 @@
 		996F004127D746A2000A137C /* HSE Clubs */ = {
 			isa = PBXGroup;
 			children = (
+				9959A43D28364B410019FDB2 /* MyClubs */,
+				9959A438283634050019FDB2 /* AddEvent */,
+				9959A431283531290019FDB2 /* ClubCreation */,
 				9902658F28294B3300FEEF48 /* Settings */,
 				99A8CFC3281C1CE80036CCCD /* Requests.swift */,
 				990CC15227DF4B3400CD7BA9 /* Club */,
@@ -215,6 +274,7 @@
 				99FA0CC527DBB730006D8609 /* UIImage+resize.swift */,
 				99FA0CDE27DE0F2C006D8609 /* Search */,
 				99BFC7EA281045DD00568E29 /* Auth */,
+				9959A43628362BD80019FDB2 /* HairLineView.swift */,
 			);
 			path = "HSE Clubs";
 			sourceTree = "<group>";
@@ -278,7 +338,7 @@
 				99FA0CD527DE0F25006D8609 /* SearchModels.swift */,
 				99FA0CD627DE0F25006D8609 /* SearchViewController.swift */,
 				99FA0CD727DE0F25006D8609 /* SearchInteractor.swift */,
-				99FA0CDF27DE12B6006D8609 /* ClubCell.swift */,
+				9959A44E28364FA10019FDB2 /* ClubCell.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -401,7 +461,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9959A43C2836342F0019FDB2 /* AddEvent.storyboard in Resources */,
 				9902658E28294B2300FEEF48 /* Settings.storyboard in Resources */,
+				9959A4352835315B0019FDB2 /* ClubCreation.storyboard in Resources */,
 				996F005227D746A5000A137C /* LaunchScreen.storyboard in Resources */,
 				996F004F27D746A5000A137C /* Assets.xcassets in Resources */,
 			);
@@ -428,6 +490,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9959A43728362BD80019FDB2 /* HairLineView.swift in Sources */,
 				990CC14C27DF4B2C00CD7BA9 /* ClubPresenter.swift in Sources */,
 				99BFC7E7281045CE00568E29 /* AuthModels.swift in Sources */,
 				99FA0CCC27DCD2DC006D8609 /* UserView.swift in Sources */,
@@ -435,10 +498,11 @@
 				990CC15727DFA7A300CD7BA9 /* AdministratorView.swift in Sources */,
 				996F004327D746A2000A137C /* AppDelegate.swift in Sources */,
 				996F008027D75222000A137C /* UserInteractor.swift in Sources */,
-				99FA0CE027DE12B6006D8609 /* ClubCell.swift in Sources */,
+				99FA0CE027DE12B6006D8609 /* MyClubCell.swift in Sources */,
 				99FA0CDC27DE0F25006D8609 /* SearchViewController.swift in Sources */,
 				99FA0CCE27DDD94E006D8609 /* ContactsView.swift in Sources */,
 				990CC15027DF4B2C00CD7BA9 /* ClubViewController.swift in Sources */,
+				9959A44928364BA50019FDB2 /* MyClubsRouter.swift in Sources */,
 				990CC15527DF653300CD7BA9 /* ClubNameView.swift in Sources */,
 				996F007F27D75222000A137C /* UserViewController.swift in Sources */,
 				99FA0CD927DE0F25006D8609 /* SearchWorker.swift in Sources */,
@@ -446,21 +510,29 @@
 				99FA0CDA27DE0F25006D8609 /* SearchRouter.swift in Sources */,
 				990CC15927E0AB7F00CD7BA9 /* EventView.swift in Sources */,
 				99FA0CDB27DE0F25006D8609 /* SearchModels.swift in Sources */,
+				9959A44C28364BA50019FDB2 /* MyClubsPresenter.swift in Sources */,
+				9959A433283531420019FDB2 /* ClubCreationController.swift in Sources */,
 				996F007E27D75222000A137C /* UserModels.swift in Sources */,
 				99BFC7E8281045CE00568E29 /* AuthViewController.swift in Sources */,
+				9959A44B28364BA50019FDB2 /* MyClubsInteractor.swift in Sources */,
 				996F007D27D75222000A137C /* UserRouter.swift in Sources */,
 				996F007B27D75222000A137C /* UserPresenter.swift in Sources */,
 				990CC14F27DF4B2C00CD7BA9 /* ClubModels.swift in Sources */,
 				990CC15127DF4B2C00CD7BA9 /* ClubInteractor.swift in Sources */,
+				9959A44F28364FA10019FDB2 /* ClubCell.swift in Sources */,
+				9959A44728364BA50019FDB2 /* MyClubsViewController.swift in Sources */,
+				9959A44828364BA50019FDB2 /* MyClubsWorker.swift in Sources */,
 				99FA0CDD27DE0F25006D8609 /* SearchInteractor.swift in Sources */,
 				996F007C27D75222000A137C /* UserWorker.swift in Sources */,
 				99A8CFC4281C1CE80036CCCD /* Requests.swift in Sources */,
 				9902658C281D7D7E00FEEF48 /* AuthButton.swift in Sources */,
+				9959A43A283634160019FDB2 /* AddEventController.swift in Sources */,
 				9902659128294BB600FEEF48 /* SettingsViewController.swift in Sources */,
 				99FA0CD827DE0F25006D8609 /* SearchPresenter.swift in Sources */,
 				996F004D27D746A2000A137C /* HSE_Clubs.xcdatamodeld in Sources */,
 				996F004527D746A2000A137C /* SceneDelegate.swift in Sources */,
 				99FA0CC627DBB730006D8609 /* UIImage+resize.swift in Sources */,
+				9959A44A28364BA50019FDB2 /* MyClubsModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
